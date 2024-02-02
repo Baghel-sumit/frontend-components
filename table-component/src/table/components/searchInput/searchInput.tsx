@@ -1,9 +1,11 @@
+import React from 'react';
+import { searchInputProps } from '../../interfaces';
 import './search-input.css';
 
-const SearchInput = () => {
+const SearchInput: React.FC<searchInputProps> = ({ className, value, onChange }) => {
   return (
-    <div className="constrain">
-      <input className="input-grey-rounded" type="text" placeholder="Search"/>
+    <div className={`constrain ${className || ''}`}>
+      <input className="input-grey-rounded" value={value} onChange={onChange} type="text" placeholder="Search"/>
     </div>
   )
 }

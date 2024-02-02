@@ -30,3 +30,12 @@ export const allAttributeTypes = [
     conditions: ['Exists', 'Not exists', 'Equal to', 'Not equal to']
   }
 ];
+
+export const voidFunc = ()=> {};
+export const defaultPageSizeDdItems = [
+  { value: 10, label: '10 items', isActive: true, isDefault: true },
+  { value: 20, label: '20 items' },
+  { value: 30, label: '30 items' },
+  { value: 40, label: '40 items' },
+];
+export const defaultPageSizeDdLabel = 'Size: ';

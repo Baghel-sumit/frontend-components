@@ -1,27 +1,39 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 
-interface FilterSelectDdValues {
+type FilterSelectDdValues = {
   key: string,
   value: string,
   label: string,
 }
 
-export interface FilterSelectDdProps {
+export type SortColumnData = {
+  idx: number,
+  item: Column,
+  order: 'asd' | 'dsd'
+}
+
+export type FilterSelectDdProps = {
   label: string,
   values: Array<FilterSelectDdValues>,
   id: string,
   isStringArray: boolean
 }
 
-export interface PageSizeDd {
-  value: string | number,
+export type PageSizeDd = {
+  value: number,
   label: string,
   isActive?: boolean, 
   isDefault?: boolean,
   className?: string,
 }
 
-interface Column {
+export type searchInputProps = {
+  value: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  className: string;
+}
+
+export type Column = {
   value: string | number;
   isSorting: boolean;
   render?: () => ReactNode;
@@ -30,11 +42,11 @@ interface Column {
   dataType: string | number;
 }
 
-interface ColumnData {
+export type ColumnData = {
   [key: string]: string | number
 }
 
-export interface TableProps {
+export type TableProps = {
   isCustomPagination?: boolean,
   isDefaultPagination?: boolean,
   isPageSizeDd?: boolean,
@@ -44,5 +56,9 @@ export interface TableProps {
   pageSizeDdItems?: Array<PageSizeDd>,
   columns: Array<Column>,
   className?: string,
-  data: Array<ColumnData>
+  data: Array<ColumnData>,
+  searchInput: searchInputProps,
+  classNamePrefix?: string,
+  onClickBack?: () => void,
+  onClickForward?: () => void
 }
